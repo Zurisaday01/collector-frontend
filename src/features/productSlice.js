@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const fetchProducts = createAsyncThunk('fetchProducts', async () => {
 	try {
-		const { data } = await axios.get('/api/products');
+		const { data } = await axios.get('https://collector-backend.onrender.com/api/products');
 
 		return data.products;
 	} catch (error) {
@@ -12,7 +12,7 @@ export const fetchProducts = createAsyncThunk('fetchProducts', async () => {
 });
 export const fetchProduct = createAsyncThunk('fetchProduct', async id => {
 	try {
-		const { data } = await axios.get(`/api/products/${id}`);
+		const { data } = await axios.get(`https://collector-backend.onrender.com/api/products/${id}`);
 		return data;
 	} catch (error) {
 		console.error(error);
