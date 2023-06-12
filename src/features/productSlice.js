@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const fetchProducts = createAsyncThunk('fetchProducts', async () => {
 	try {
-		const { data } = await axios.get('https://collector-backend.onrender.com/api/products');
+		const { data } = await axios.get('/api/products');
 
 		return data.products;
 	} catch (error) {
