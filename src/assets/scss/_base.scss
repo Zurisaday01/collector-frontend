@@ -1,0 +1,78 @@
+:root {
+	--color-primary: #2481f9;
+	--color-secondary: #00fffb;
+	// gray
+	--color-grey: #6e6e6e;
+	--color-grey-light: #d5d5d5;
+	// dark
+	--color-dark: #080708;
+
+	// shadow
+	--shadow-light: 0 1.5rem 5rem rgba(0, 0, 0, 0.1);
+
+	// font
+	--font-heading: 'Fira Sans', sans-serif;
+	--font-body: 'IBM Plex Sans', sans-serif;
+}
+
+// media queries
+$bp-largest: 75em; // 1200px
+$bp-large: 68.75em; // 1100px
+$bp-medium: 46.25em; // 740px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; // 500px
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
+
+	@media (max-width: $bp-large) {
+		font-size: 50%;
+	}
+}
+
+body {
+	font-family: 'Tajawal', sans-serif;
+	color: var(--color-grey-dark-1);
+	line-height: 1.5;
+	font-weight: 400;
+	font-size: 1.7rem;
+	min-height: 100vh;
+	position: relative;
+}
+
+.container {
+	padding: 0 12vw;
+}
+
+.content {
+	max-width: 90vw;
+	margin: 0 auto;
+}
+
+.spinner {
+	width: 10rem;
+	height: 10rem;
+	justify-self: center;
+	align-self: center;
+}
+
+.quick {
+	padding-top: 10rem;
+}
+
+// stars of product screen
+.react-star-rate {
+	font-size: 3rem !important;
+}
