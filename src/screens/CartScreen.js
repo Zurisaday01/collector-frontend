@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { BASE_URL } from '../utils/helper';
+
 // redux
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProductInCart } from '../features/cartSlice';
@@ -70,7 +72,10 @@ const CartScreen = () => {
 								{cartItems.map(item => (
 									<div key={item._id} className='cart-screen__mobile'>
 										<div className='cart-screen__img'>
-											<img src={`/images/${item.image}`} alt={item.name} />
+											<img
+												src={`${BASE_URL}/images/${item.image}`}
+												alt={item.name}
+											/>
 										</div>
 
 										<div className='cart-screen__info'>
@@ -110,7 +115,10 @@ const CartScreen = () => {
 										<tr key={item._id} className='cart-screen__rows'>
 											<td className='cart-screen__book-info'>
 												<div className='cart-screen__img'>
-													<img src={`/images/${item.image}`} alt={item.name} />
+													<img
+														src={`${BASE_URL}/images/${item.image}`}
+														alt={item.name}
+													/>
 												</div>
 												<div className='cart-screen__info'>
 													<span

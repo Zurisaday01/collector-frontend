@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Btn from '../components/Btn';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrderSumary } from '../features/cartSlice';
+import { BASE_URL } from '../utils/helper';
 import {
 	orderStart,
 	orderSuccess,
@@ -117,7 +118,10 @@ const PlaceOrderScreen = () => {
 								{cart.cartItems.map(item => (
 									<div key={item._id} className='cart-screen__mobile'>
 										<div className='cart-screen__img'>
-											<img src={`/images/${item.image}`} alt={item.name} />
+											<img
+												src={`${BASE_URL}/images/${item.image}`}
+												alt={item.name}
+											/>
 										</div>
 
 										<div className='cart-screen__info'>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from '../utils/helper';
 
 const CardBook = ({ product }) => {
 	return (
@@ -10,7 +11,10 @@ const CardBook = ({ product }) => {
 						<span className='card__bestseller'>Best Seller</span>
 					) : null}
 					<div className='card__img'>
-						<img src={`/images/${product.image}`} alt={product.name} />
+						<img
+							src={`${BASE_URL}/images/${product.image}`}
+							alt={product.name}
+						/>
 					</div>
 
 					<div className='card__content'>

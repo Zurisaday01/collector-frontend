@@ -4,6 +4,7 @@ import { MdModeEditOutline } from 'react-icons/md';
 
 import Rating from './Rating';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from '../utils/helper';
 
 const Review = ({ review, isCurrentUser }) => {
 	return (
@@ -15,7 +16,9 @@ const Review = ({ review, isCurrentUser }) => {
 							src={`/images/${review.user.photo}`}
 							alt={review.user.name}></img>
 					) : (
-						<img src={`/images/default.png`} alt='Deleted user'></img>
+						<img
+							src={`${BASE_URL}/images/default.png`}
+							alt='Deleted user'></img>
 					)}
 				</div>
 				<div className='review__info'>
