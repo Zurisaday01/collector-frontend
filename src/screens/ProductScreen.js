@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import { BASE_URL } from '../utils/helper';
+
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -80,7 +82,7 @@ const ProductScreen = () => {
 								) : null}
 								<div className='product-screen__image'>
 									<img
-										src={`/images/${product.data.product.image}`}
+										src={`${BASE_URL}/images/${product.data.product.image}`}
 										alt={product.data.product.name}></img>
 								</div>
 

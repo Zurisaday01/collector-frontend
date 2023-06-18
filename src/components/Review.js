@@ -13,7 +13,7 @@ const Review = ({ review, isCurrentUser }) => {
 				<div className='review__photo'>
 					{review.user ? (
 						<img
-							src={`/images/${review.user.photo}`}
+							src={`${BASE_URL}/images/${review.user.photo}`}
 							alt={review.user.name}></img>
 					) : (
 						<img

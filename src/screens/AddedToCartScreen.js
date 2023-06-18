@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import ConfettiExplosion from 'react-confetti-explosion';
+import { BASE_URL } from '../utils/helper';
 
 import { useParams } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -64,7 +65,7 @@ const AddedToCartScreen = () => {
 							<div className='added-screen__contain'>
 								<div className='added-screen__image'>
 									<img
-										src={`/images/${currentItem.image}`}
+										src={`${BASE_URL}/images/${currentItem.image}`}
 										alt={currentItem.name}
 									/>
 								</div>
