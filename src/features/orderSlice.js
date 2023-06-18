@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
 
 export const fetchOrders = createAsyncThunk('fetchOrders', async () => {
 	try {
-		const { data } = await axios.get('/api/orders', {
+		const { data } = await axios.get(`${BASE_URL}/api/orders`, {
 			withCredentials: true,
 		});
 
@@ -15,7 +16,7 @@ export const fetchOrders = createAsyncThunk('fetchOrders', async () => {
 
 export const fetchAllOrders = createAsyncThunk('fetchAllOrders', async () => {
 	try {
-		const { data } = await axios.get('/api/orders/admin', {
+		const { data } = await axios.get(`${BASE_URL}/api/orders/admin`, {
 			withCredentials: true,
 		});
 
@@ -27,7 +28,7 @@ export const fetchAllOrders = createAsyncThunk('fetchAllOrders', async () => {
 
 export const fetchOrder = createAsyncThunk('fetchOrder', async id => {
 	try {
-		const { data } = await axios.get(`/api/orders/${id}`, {
+		const { data } = await axios.get(`${BASE_URL}/api/orders/${id}`, {
 			withCredentials: true,
 		});
 

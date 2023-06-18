@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
+
 import Btn from '../components/Btn';
 import { loginStart, loginSuccess, loginFailure } from '../features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -58,7 +60,7 @@ const SignInScreen = () => {
 		// sending data user input
 		try {
 			const { data } = await axios.post(
-				'/api/users/signin',
+				`${BASE_URL}/api/users/signin`,
 				{
 					email: values.email,
 					password: values.password,

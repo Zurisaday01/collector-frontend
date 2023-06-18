@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
 
 // Options
 import ManageProfile from '../components/ManageProfile';
@@ -39,9 +40,12 @@ const ProfileScreen = ({ isPhotoUpdated, setIsPhotoUpdated }) => {
 		const getProfile = async () => {
 			try {
 				if (isPhotoUpdated) {
-					const { data } = await axios.get('/api/users/yourProfile', {
-						withCredentials: true,
-					});
+					const { data } = await axios.get(
+						`${BASE_URL}/api/users/yourProfile`,
+						{
+							withCredentials: true,
+						}
+					);
 
 					setUserPhoto(data.data.user.photo);
 

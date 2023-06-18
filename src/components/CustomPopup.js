@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Btn from './Btn';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
 import {
 	deleteAccuntStart,
 	deleteAccuntFailure,
@@ -21,7 +22,7 @@ const CustomPopup = ({ setVisibility, visibility, title, children }) => {
 	const handleDelete = async () => {
 		dispatch(deleteAccuntStart());
 		try {
-			const res = await axios.delete('/api/users/deleteProfile', {
+			const res = await axios.delete(`${BASE_URL}/api/users/deleteProfile`, {
 				withCredentials: true,
 			});
 

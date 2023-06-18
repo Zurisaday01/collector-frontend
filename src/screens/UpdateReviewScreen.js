@@ -12,6 +12,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../components/Loader';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
 
 const UpdateReviewScreen = () => {
 	const navigate = useNavigate();
@@ -46,7 +47,7 @@ const UpdateReviewScreen = () => {
 
 		try {
 			const res = await axios.patch(
-				`/api/reviews/${id}`,
+				`${BASE_URL}/api/reviews/${id}`,
 				{
 					rating: rating,
 					review: review.replace(/\n\n/g, '/n'),

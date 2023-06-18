@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Btn from '../components/Btn';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
+
 import FormInput from '../components/FormInput';
 import Alert from '../components/Alert';
 
@@ -36,7 +38,7 @@ const ForgotPasswordScreen = () => {
 		setLoading(true);
 		try {
 			const { data } = await axios.post(
-				'/api/users/forgotPassword',
+				`${BASE_URL}/api/users/forgotPassword`,
 				{
 					email,
 				},

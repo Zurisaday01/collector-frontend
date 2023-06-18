@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BASE_URL } from '../utils/helper';
 
 // components
 import Hero1 from '../assets/img/hero-1.png';
@@ -15,7 +14,7 @@ const Hero = ({ setSelectedCategory }) => {
 				<h1 className='heading-primary'>Find your books here</h1>
 				<Link
 					className='btn'
-					to={`${BASE_URL}/shop`}
+					to='shop'
 					onClick={() => setSelectedCategory('All books')}>
 					Shop Now
 				</Link>

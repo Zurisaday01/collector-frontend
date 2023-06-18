@@ -7,6 +7,7 @@ import PuffLoader from 'react-spinners/PuffLoader';
 import { orderPayReset } from '../features/orderSlice';
 import { cartReset } from '../features/cartSlice';
 import useMediaQuery from '../hooks/useMediaQuery';
+import { BASE_URL } from '../utils/helper';
 
 const override = {
 	display: 'block',
@@ -35,9 +36,12 @@ const DropdownUser = ({
 		const getProfile = async () => {
 			try {
 				if (isPhotoUpdated) {
-					const { data } = await axios.get('/api/users/yourProfile', {
-						withCredentials: true,
-					});
+					const { data } = await axios.get(
+						`${BASE_URL}/api/users/yourProfile`,
+						{
+							withCredentials: true,
+						}
+					);
 
 					setUserPhoto(data.data.user.photo);
 
@@ -53,7 +57,7 @@ const DropdownUser = ({
 
 	const logoutUser = async () => {
 		try {
-			const res = await axios.get('/api/users/logout', {
+			const res = await axios.get(`${BASE_URL}/api/users/logout`, {
 				withCredentials: true,
 			});
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Btn from '../components/Btn';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
+
 import {
 	createStart,
 	createSuccess,
@@ -36,7 +38,7 @@ const CreateReviewScreen = () => {
 
 		try {
 			const res = await axios.post(
-				'/api/reviews',
+				`${BASE_URL}/api/reviews`,
 				{
 					product: productId,
 					rating: rating,

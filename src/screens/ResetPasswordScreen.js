@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
 
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -69,7 +70,7 @@ const ResetPasswordScreen = () => {
 		setLoading(true);
 		try {
 			const { data } = await axios.patch(
-				`/api/users//resetPassword/${token}`,
+				`${BASE_URL}/api/users//resetPassword/${token}`,
 				{
 					password: values.password,
 					passwordConfirm: values.passwordConfirm,

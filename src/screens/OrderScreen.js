@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Message from '../components/Message';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
 
 import { PayPalButton } from 'react-paypal-button-v2';
 import Loader from '../components/Loader';
@@ -33,7 +34,9 @@ const OrderScreen = () => {
 
 	useEffect(() => {
 		const addPayPalScript = async () => {
-			const { data: clientId } = await axios.get('/api/config/paypal');
+			const { data: clientId } = await axios.get(
+				`${BASE_URL}/api/config/paypal`
+			);
 			// create an script
 			const script = document.createElement('script');
 			script.type = 'text/javascript';
@@ -64,9 +67,13 @@ const OrderScreen = () => {
 		dispatch(orderPayStart());
 
 		try {
-			const { data } = await axios.put(`/api/orders/${id}/pay`, paymentResult, {
-				withCredentials: true,
-			});
+			const { data } = await axios.put(
+				`${BASE_URL}/api/orders/${id}/pay`,
+				paymentResult,
+				{
+					withCredentials: true,
+				}
+			);
 			dispatch(orderPaySuccess());
 			dispatch(orderPayUpdate(data.data.order));
 			// // if success pay then reset order

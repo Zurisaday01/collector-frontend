@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
 
 export const fetchReview = createAsyncThunk('fetchReview', async id => {
 	try {
-		const { data } = await axios.get(`/api/reviews/${id}`);
+		const { data } = await axios.get(`${BASE_URL}/api/reviews/${id}`);
 		return data.data.review;
 	} catch (error) {
 		console.error(error);
@@ -12,7 +13,7 @@ export const fetchReview = createAsyncThunk('fetchReview', async id => {
 
 export const fetchReviews = createAsyncThunk('fetchReviews', async () => {
 	try {
-		const { data } = await axios.get('/api/reviews', {
+		const { data } = await axios.get(`${BASE_URL}/api/reviews`, {
 			withCredentials: true,
 		});
 

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
 
 // components
 import Btn from './Btn';
 import FormInput from './FormInput';
+
 
 const ManageAccount = ({ setSuccess, setFailure, setNewMessage }) => {
 	const [values, setValues] = useState({
@@ -63,7 +65,7 @@ const ManageAccount = ({ setSuccess, setFailure, setNewMessage }) => {
 
 		try {
 			const data = await axios.patch(
-				'/api/users/updateMyPassword',
+				`${BASE_URL}/api/users/updateMyPassword`,
 				{
 					passwordCurrent: values.passwordCurrent,
 					password: values.password,

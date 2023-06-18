@@ -44,7 +44,7 @@ const OrderItems = () => {
 
 		try {
 			const { data } = await axios.patch(
-				`/api/orders/${id}/deliver`,
+				`${BASE_URL}/api/orders/${id}/deliver`,
 				{
 					isDelivered: true,
 					deliveredAt: Date.now(),

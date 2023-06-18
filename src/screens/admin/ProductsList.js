@@ -7,6 +7,7 @@ import {
 	fetchProducts,
 } from '../../features/productSlice';
 import axios from 'axios';
+import { BASE_URL } from '../../utils/helper';
 
 // Table
 import Table from '@mui/material/Table';
@@ -59,7 +60,7 @@ const ProductsList = () => {
 		dispatch(deleteStart());
 		// axios delete
 		try {
-			const res = await axios.delete(`/api/products/${id}`, {
+			const res = await axios.delete(`${BASE_URL}/api/products/${id}`, {
 				withCredentials: true,
 			});
 

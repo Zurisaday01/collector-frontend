@@ -7,6 +7,8 @@ import { CgMenu, CgClose } from 'react-icons/cg';
 import { useDispatch, useSelector } from 'react-redux';
 import DropdownUser from './DropdownUser';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
+
 import { logout } from '../features/userSlice';
 import { orderPayReset } from '../features/orderSlice';
 import { cartReset } from '../features/cartSlice';
@@ -34,7 +36,7 @@ const Navbar = ({
 
 	const logoutUser = async () => {
 		try {
-			const res = await axios.get('/api/users/logout', {
+			const res = await axios.get(`${BASE_URL}/api/users/logout`, {
 				withCredentials: true,
 			});
 

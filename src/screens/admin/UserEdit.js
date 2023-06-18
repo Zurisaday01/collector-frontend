@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../utils/helper';
 
 // Nav
 import { Link, useParams } from 'react-router-dom';
@@ -52,7 +53,7 @@ const UserEdit = () => {
 
 		try {
 			const res = await axios.patch(
-				`/api/users/${id}`,
+				`${BASE_URL}/api/users/${id}`,
 				{
 					name: name,
 					email: email,

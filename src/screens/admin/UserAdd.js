@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../utils/helper';
+
 // Nav
 import { Link } from 'react-router-dom';
 
@@ -101,7 +103,7 @@ const UserAdd = () => {
 
 		try {
 			const res = await axios.post(
-				'/api/users/create',
+				`${BASE_URL}/api/users/create`,
 				{
 					name: values.name,
 					email: values.email,

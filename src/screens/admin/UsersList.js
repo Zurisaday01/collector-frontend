@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../utils/helper';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -62,7 +63,7 @@ const UsersList = () => {
 
 		// axios delete
 		try {
-			const res = await axios.delete(`/api/users/${id}`, {
+			const res = await axios.delete(`${BASE_URL}/api/users/${id}`, {
 				withCredentials: true,
 			});
 

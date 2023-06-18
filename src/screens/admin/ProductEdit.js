@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Btn from '../../components/Btn';
+import { BASE_URL } from '../../utils/helper';
 import {
 	editStart,
 	editSuccess,
@@ -76,9 +77,13 @@ const ProductEdit = () => {
 		formData.append('bestseller', check);
 
 		try {
-			const res = await axios.patch(`/api/products/${id}`, formData, {
-				withCredentials: true,
-			});
+			const res = await axios.patch(
+				`${BASE_URL}/api/products/${id}`,
+				formData,
+				{
+					withCredentials: true,
+				}
+			);
 			dispatch(editSuccess());
 
 			setIsSuccess(true);

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Btn from '../../components/Btn';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { BASE_URL } from '../../utils/helper';
 
 import {
 	addStart,
@@ -37,7 +38,7 @@ const ProductAdd = () => {
 
 		try {
 			const res = await axios.post(
-				'/api/products',
+				`${BASE_URL}/api/products`,
 				{
 					name: name,
 					author: author,

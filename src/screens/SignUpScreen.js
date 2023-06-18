@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
 
 import { Link, useNavigate } from 'react-router-dom';
 // Redux
@@ -99,7 +100,7 @@ const SignUpScreen = () => {
 		// sending data user input
 		try {
 			const { data } = await axios.post(
-				'/api/users/signup',
+				`${BASE_URL}/api/users/signup`,
 				{
 					name: values.name,
 					email: values.email,

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../utils/helper';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/img/logo.png';
 
@@ -30,7 +31,7 @@ const Sidebar = ({ isAdmin }) => {
 
 	const logoutUser = async () => {
 		try {
-			const res = await axios.get('/api/users/logout', {
+			const res = await axios.get(`${BASE_URL}/api/users/logout`, {
 				withCredentials: true,
 			});
 

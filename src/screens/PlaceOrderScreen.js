@@ -60,7 +60,7 @@ const PlaceOrderScreen = () => {
 	) => {
 		try {
 			const { data } = await axios.post(
-				'/api/orders',
+				`${BASE_URL}/api/orders`,
 				{
 					orderItems: orderItems,
 					shippingAddress: shippingAddress,

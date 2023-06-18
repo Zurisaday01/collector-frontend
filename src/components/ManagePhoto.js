@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Btn from './Btn';
 import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
 
 import { updateStart, updateFailure, updatePhoto } from '../features/userSlice';
 import { useDispatch } from 'react-redux';
@@ -30,9 +31,13 @@ const ManagePhoto = ({ setSuccess, setFailure, setIsPhotoUpdated }) => {
 
 	const updateUserPhoto = async formData => {
 		try {
-			const { data } = await axios.patch('/api/users/updateProfile', formData, {
-				withCredentials: true,
-			});
+			const { data } = await axios.patch(
+				`${BASE_URL}/api/users/updateProfile`,
+				formData,
+				{
+					withCredentials: true,
+				}
+			);
 
 			dispatch(updatePhoto(data.data.user.photo));
 
